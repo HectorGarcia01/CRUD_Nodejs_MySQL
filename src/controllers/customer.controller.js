@@ -60,6 +60,28 @@ controller.read = (req, res) => {
     });
 }
 
+//Definimos una propiedad para actualizar los datos de un cliente
+controller.update = (req, res) => {
+    //Obtenemos el id del cliente
+    const { id } = req.params;
+
+    //Obtenemos los datos a actualizar
+    const data = req.body;
+
+    //Pedimos una conexión a mysql
+    req.getConnection((err, conn) => {
+        conn.query('UPDATE customer set ? WHERE id = ?', [data, id], (err, rows) => {
+            //En caso de obtener un error
+            if (err) {
+                //Enviamos un estado 400 con el error
+                res.status(400).send({ error: "Error al borrar el cliente.", err });
+            }
+
+            //Redireccionamos a la ruta principal
+            res.redirect('/');
+        });
+    });
+}
 
 //Exportamos el objeto
 module.exports = controller;
