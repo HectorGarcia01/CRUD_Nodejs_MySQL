@@ -1,0 +1,25 @@
+<%- include("partials/_header") %>
+
+    <div class="container">
+            <div class="col-md-5 col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/add/customer" method="post">
+                            <div class="form-group">
+                                <input type="text" name="nombre" placeholder="Ingresa tu nombre" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="direccion" placeholder="Ingresa tu dirección" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="telefono" placeholder="Ingresa tu teléfono" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Guardar cliente</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<%- include("partials/_footer") %>
