@@ -8,7 +8,7 @@ const {
     HOST,
     USER,
     PASSWORD,
-    PORT,
+    PORTMYSQL,
     DATABASE
 } = require('./config/config')                                      //Cargamos las variables de entorno
 const app = express();               //Inicializamos express
@@ -25,7 +25,7 @@ app.use(myConnection(mysql, {
     host: HOST,
     user: USER,
     password: PASSWORD,
-    port: PORT,
+    port: PORTMYSQL,
     database: DATABASE
 }, 'single'));
 
